@@ -1,16 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public List<Enemy> Enemies = new List<Enemy>();
+
+    internal void RemoveEnemy(Enemy enemy)
+    {
+        if (Enemies.Contains(enemy))
+            Enemies.Remove(enemy);
+    }
+
+    internal void SetEnemy(Enemy enemy)
+    {
+        if (!Enemies.Contains(enemy))
+            Enemies.Add(enemy);
+    }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

@@ -3032,7 +3032,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
-  _speed: 5
+  _speedMove: 10
+  _speedRotate: 50
 --- !u!1 &972764234
 GameObject:
   m_ObjectHideFlags: 0
