@@ -52,8 +52,13 @@ public class Tower : MonoBehaviour
     {
         _isShoot = true;
         yield return new WaitForSeconds(_reloadTime);
-        GameObject bulletObj = Instantiate(_bullet, _bulletSpawn.position,
-            Quaternion.identity);
+        if (Target != null)
+        {
+            GameObject bulletObj = Instantiate(_bullet, _bulletSpawn.position,
+           Quaternion.identity);
+            Bullet bullet = bulletObj.GetComponent<Bullet>();
+            bullet.SetTarget(Target.transform);
+        }
         _isShoot = false;
     }
 }
