@@ -132,6 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990c5992acffeeb499033cf438bff1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hpSlider: {fileID: 3433802854678095285, guid: e38b36ed83970b04e9c8187dee408324, type: 3}
+  _maxHP: 100
   _speed: 5
 --- !u!65 &2634638770295461362
 BoxCollider:

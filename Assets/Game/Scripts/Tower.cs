@@ -21,6 +21,7 @@ public class Tower : MonoBehaviour
             Enemies.Remove(enemy);
         if (enemy == Target)
         {
+            Target.OnDead -= RemoveEnemy;
             Target = null;
             SetNewTarget();
         }
@@ -29,7 +30,10 @@ public class Tower : MonoBehaviour
     private void SetNewTarget()
     {
         if (Enemies.Count > 0)
+        {
             Target = Enemies.Last();
+            Target.OnDead += RemoveEnemy;
+        }
     }
 
     internal void SetEnemy(Enemy enemy)
@@ -58,6 +62,7 @@ public class Tower : MonoBehaviour
            Quaternion.identity);
             Bullet bullet = bulletObj.GetComponent<Bullet>();
             bullet.SetTarget(Target.transform);
+            Target.OnDead += bullet.DestroyBullet;
         }
         _isShoot = false;
     }

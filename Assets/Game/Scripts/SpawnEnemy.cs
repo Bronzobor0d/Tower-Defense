@@ -10,6 +10,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private Transform _spawn;
     [SerializeField] private float _startSpawn;
     [SerializeField] private float _intervalSpawn;
+    [SerializeField] private Canvas _canvas;
 
     void Start()
     {
@@ -21,6 +22,8 @@ public class SpawnEnemy : MonoBehaviour
     {
         GameObject enemy = Instantiate(_enemy,
             _spawn.position, Quaternion.identity);
-        enemy.GetComponent<Enemy>().SetWay(_wayPoints);
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+        enemyScript.SetWay(_wayPoints);
+        enemyScript.Canvas = _canvas;
     }
 }
